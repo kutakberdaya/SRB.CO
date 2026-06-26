@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SRB.CO Catalog</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- Ambient atmospheric glows (CSS-animated, behind everything) -->
+    <div class="atmo-glow atmo-glow-1" aria-hidden="true"></div>
+    <div class="atmo-glow atmo-glow-2" aria-hidden="true"></div>
+    <div class="atmo-glow atmo-glow-3" aria-hidden="true"></div>
+
+    <!-- Frost orbs canvas -->
+    <canvas id="frostCanvas" aria-hidden="true"></canvas>
+
+    <!-- Snow particles canvas -->
+    <canvas id="snowCanvas" aria-hidden="true"></canvas>
+
+    <!-- Ice bubbles canvas -->
+    <canvas id="bubbleCanvas" aria-hidden="true"></canvas>
+
+    <!-- Crystal sparkles canvas -->
+    <canvas id="sparkleCanvas" aria-hidden="true"></canvas>
+
+    <div class="depth-bg" aria-hidden="true">
+      <span class="depth-orb depth-orb-one"></span>
+      <span class="depth-orb depth-orb-two"></span>
+      <span class="depth-noise"></span>
+    </div>
+
+    <header class="hero">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#">SRB.CO</a>
+        <a class="nav-link" href="#catalog">Catalog</a>
+      </nav>
+
+      <section class="hero-content" aria-labelledby="hero-title">
+        <p class="eyebrow">OSIS Apparel</p>
+        <h1 id="hero-title">SRB.CO</h1>
+        <p class="subtitle">OSIS SRABADHIYATA</p>
+        <a class="button" href="#catalog">View Products</a>
+      </section>
+    </header>
+
+    <main>
+      <section class="catalog reveal" id="catalog" aria-labelledby="catalog-title">
+        <div class="section-heading">
+          <p class="eyebrow">Latest tees</p>
+          <h2 id="catalog-title">SLOGAN</h2>
+        </div>
+
+        <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer class="footer reveal">
+      <p>SRB.CO catalog preview. Front and back views are shown directly on each product card.</p>
+    </footer>
+
+    <div class="spotlight" id="productSpotlight" aria-hidden="true">
+      <div class="spotlight-card" role="dialog" aria-modal="true" aria-labelledby="spotlightTitle">
+        <button class="spotlight-close" type="button" aria-label="Close product spotlight">&times;</button>
+        <button class="spotlight-image-button" type="button" aria-label="Show back view">
+          <img class="spotlight-image" id="spotlightImage" src="" alt="" />
+          <span class="view-pill spotlight-pill" id="spotlightView">Front</span>
+        </button>
+        <div class="spotlight-info">
+          <span class="badge" id="spotlightTag"></span>
+          <h2 id="spotlightTitle"></h2>
+          <p class="spotlight-price" id="spotlightPrice"></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
