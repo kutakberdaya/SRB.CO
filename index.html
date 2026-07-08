@@ -34,7 +34,10 @@
     <header class="hero">
       <nav class="nav" aria-label="Primary navigation">
         <a class="brand" href="#">SRB.CO</a>
-        <a class="nav-link" href="#catalog">Catalog</a>
+        <div class="nav-right">
+          <a class="nav-link" href="#catalog">Catalog</a>
+          <a class="nav-order-btn" href="#" target="_blank" rel="noopener noreferrer">Order Now</a>
+        </div>
       </nav>
 
       <section class="hero-content" aria-labelledby="hero-title">
@@ -46,13 +49,20 @@
     </header>
 
     <main>
-      <section class="catalog reveal" id="catalog" aria-labelledby="catalog-title">
+      <section class="catalog reveal" id="catalog">
         <div class="section-heading">
           <p class="eyebrow">Latest tees</p>
-          <h2 id="catalog-title">SLOGAN</h2>
         </div>
 
         <div class="product-grid" id="productGrid" aria-live="polite"></div>
+
+        <div class="order-cta reveal">
+          <a class="order-btn" href="#" target="_blank" rel="noopener noreferrer">
+            <span class="order-btn-text">ORDER NOW</span>
+            <span class="order-btn-icon">→</span>
+          </a>
+          <p class="order-cta-note">Pesan melalui Google Form kami</p>
+        </div>
       </section>
     </main>
 

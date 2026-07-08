@@ -1,20 +1,20 @@
 const products = [
   {
-    name: "Baju 1",
+    name: "Blizzard",
     price: "Rp. 100.000",
     tag: "New",
     front: "assets/baju1-depan.png",
     back: "assets/baju1-belakang.png"
   },
   {
-    name: "Baju 2",
+    name: "Glacier",
     price: "Rp. 100.000",
     tag: "New",
     front: "assets/baju2-depan.png",
     back: "assets/baju2-belakang.png"
   },
   {
-    name: "Baju 3",
+    name: "Everfrost",
     price: "Rp. 100.000",
     tag: "New",
     front: "assets/baju3-depan.png",
