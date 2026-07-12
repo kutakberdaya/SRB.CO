@@ -38,6 +38,11 @@ let modalState = "front";
 let modalSwapLocked = false;
 let closeTimer = null;
 
+// Size Chart elements
+const sizechartPanel = document.querySelector("#sizechartPanel");
+const sizechartToggle = document.querySelector("#sizechartToggle");
+const sizechartCloseBtn = sizechartPanel.querySelector(".sizechart-close-btn");
+
 function createProductCard(product, index) {
   const card = document.createElement("article");
   card.className = "product-card reveal";
@@ -99,6 +104,7 @@ function openModal(product) {
   spotlight.classList.add("is-active");
   document.body.style.overflow = "hidden";
   document.body.style.paddingRight = scrollbarWidth > 0 ? `${scrollbarWidth}px` : "";
+  closeSizechart();
   spotlightClose.focus({ preventScroll: true });
 }
 
@@ -114,6 +120,7 @@ function closeModal() {
   closeTimer = window.setTimeout(() => {
     spotlight.classList.remove("is-closing");
     spotlight.setAttribute("aria-hidden", "true");
+    closeSizechart();
     activeProduct = null;
   }, prefersReducedMotion ? 1 : 560);
 }
@@ -640,8 +647,40 @@ spotlight.addEventListener("click", (event) => {
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeModal();
+  if (event.key === "Escape") {
+    if (sizechartPanel.classList.contains("is-open")) {
+      closeSizechart();
+    } else {
+      closeModal();
+    }
+  }
 });
+
+// ─── Size Chart ───────────────────────────────────────────────────────────────
+function openSizechart() {
+  sizechartPanel.classList.add("is-open");
+  sizechartPanel.setAttribute("aria-hidden", "false");
+  sizechartToggle.classList.add("is-active");
+  spotlightCard.classList.add("sizechart-active");
+}
+
+function closeSizechart() {
+  sizechartPanel.classList.remove("is-open");
+  sizechartPanel.setAttribute("aria-hidden", "true");
+  sizechartToggle.classList.remove("is-active");
+  spotlightCard.classList.remove("sizechart-active");
+}
+
+function toggleSizechart() {
+  if (sizechartPanel.classList.contains("is-open")) {
+    closeSizechart();
+  } else {
+    openSizechart();
+  }
+}
+
+sizechartToggle.addEventListener("click", toggleSizechart);
+sizechartCloseBtn.addEventListener("click", closeSizechart);
 
 setupScrollReveal();
 setupDepthMotion();
